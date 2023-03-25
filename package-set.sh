@@ -1,1 +1,0 @@
-python success.py | jq .
