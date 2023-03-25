@@ -42,7 +42,7 @@
         drvs = pkgs.lib.mapAttrs (_: pkg: { inherit (pkg) drvPath version isLocal; }) purenix-pkgs.prelude.package-set;
       in
       {
-        hello = drvs;
+        inherit drvs;
         packages = purenix-pkgs // { inherit all-packages package-set; };
         apps = { };
         devShells = {
