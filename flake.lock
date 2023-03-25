@@ -648,11 +648,11 @@
         "purescript-registry-index": "purescript-registry-index_2"
       },
       "locked": {
-        "lastModified": 1679634351,
-        "narHash": "sha256-gZOzxceqUQMbbsA3UFuu9c/4hQafpwMW9rJLNFme+fE=",
+        "lastModified": 1679761234,
+        "narHash": "sha256-gogCUA1if10hYBor6R+Dcw8XnX8D0ufBY/F0yGSlv5U=",
         "owner": "purifix",
         "repo": "purifix",
-        "rev": "ea813a834dd9bc2553f6f9b6616291ede0623026",
+        "rev": "7dbe2a2159884f7113c01070fd5bc50d01ab0d30",
         "type": "github"
       },
       "original": {

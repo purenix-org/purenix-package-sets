@@ -39,7 +39,7 @@
         };
         all-packages = pkgs.linkFarmFromDrvs "purenix-pkgs" (builtins.attrValues purenix-pkgs);
         package-set = pkgs.linkFarmFromDrvs "purenix-package-set" (builtins.attrValues purenix-pkgs.prelude.package-set);
-        drvs = pkgs.lib.mapAttrs (_: pkg: { inherit (pkg) drvPath version; }) purenix-pkgs.prelude.package-set;
+        drvs = pkgs.lib.mapAttrs (_: pkg: { inherit (pkg) drvPath version isLocal; }) purenix-pkgs.prelude.package-set;
       in
       {
         hello = drvs;
