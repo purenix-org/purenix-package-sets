@@ -4,8 +4,12 @@ import sys
 from datetime import datetime
 import argparse
 
+today = datetime.today().strftime('%Y-%m-%d')
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--system', type=str, default='x86_64-linux')
+parser.add_argument('--compiler', type=str, default='0.15.7')
+parser.add_argument('--published', type=str, default=today)
 args = parser.parse_args()
 
 with open("flake.lock", "r") as f:
@@ -27,10 +31,9 @@ def update_version(name, value, subdir):
         return value
 named = {k: res[v['drvPath']] | {"derivation": update_version(k, v, f'purescript-{k}')} for k, v in package_set.items()}
 final = {k: v['derivation']['version'] for k, v in named.items() if v['success'] == True}
-today = datetime.today().strftime('%Y-%m-%d')
 output = {
     'packages': final,
-    'compiler': '0.15.7',
-    'published': today,
+    'compiler': args.compiler,
+    'published': args.published,
 }
 print(json.dumps(output))
